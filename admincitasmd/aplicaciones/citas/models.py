@@ -11,6 +11,9 @@ class Citas(models.Model):
     med_id=models.IntegerField()
     pac_id=models.IntegerField()
 
+    def  __str__(self):
+        texto="{0} ({1})"
+        return texto.format (self.cit_id, self.cit_hora)
 class Especialidades(models.Model):
     esp_id=models.IntegerField(primary_key=True)
     esp_nombre=models.CharField(max_length=50)
