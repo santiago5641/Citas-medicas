@@ -1,5 +1,11 @@
 {% extends "./base.html" %} 
 {% block title %} 100 llamadas emergencias {% endblock %} {% block body %}
+<!-- {{form}} -->
+<div class="container">
+
+
+
+
 <svg xmlns="http://www.w3.org/2000/svg" style="display: none">
   <symbol id="check" viewBox="0 0 16 16">
     <title>Check</title>
@@ -30,7 +36,7 @@
       </a>
 
       <nav class="d-inline-flex mt-2 mt-md-0 ms-md-auto">
-        <a class="btn btn-outline-primary" href="#">INGRESO</a>
+        <a  href="" data-toggle="modal" data-target="#modalnuevacitas" >INGRESO</a>
       </nav>
     </div>
   </header>
@@ -75,10 +81,26 @@
           </div>
         </nav>
       </div>
-      <!-- todas las tablas -->
+      <!-- tabla de citas -->
       <div class="col-sm-9 text-center">
         <div class="row">
-            <a class="btn btn-outline-primary btn-lg btn-block" href="#"> Nuevas Citas </a>
+            <a class="btn btn-outline-primary btn-lg btn-block" href=""  data-toggle="modal" data-target="#modalnuevacitas"> Nuevas Citas 2 </a>
+            <form class="text-left">
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Nombre</label>
+    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+    <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label">Password</label>
+    <input type="password" class="form-control" id="exampleInputPassword1">
+  </div>
+  <div class="mb-3 form-check">
+    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+    <label class="form-check-label" for="exampleCheck1">Check me out</label>
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
         </div>
         <div class="table-responsive">
           <table class="table">
@@ -106,7 +128,102 @@
           </table>
         </div>
       </div>
-      <!-- fin tablas  -->
+      <!-- fin tablas  citas -->
+
+<!-- tablas pacientes -->
+<div class="col-sm-9 text-center">
+  <div class="row">
+      <a class="btn btn-outline-primary btn-lg btn-block" href="#"> PACIENTES </a>
+  </div>
+  <div class="table-responsive">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>NOMBRE</th>
+          <th>APELLIDO</th>
+          <th>CEDULA</th>
+          <th>CELULAR</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for p in pacientes %}
+        <tr>
+          <td>{{p.pac_nombre}}</td>
+          <td>{{p.pac_apellido}}</td>
+          <td>{{p.pac_ced_ruc}}</td>
+          <td>{{p.pac_cell_telf.celular}}</td>
+          <td> <a href="" class="btn btn-info">editar</a></td>
+          <td> <a href="" class="btn btn-danger">eliminar</a></td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+<!-- fin tablas pacientes  -->
+
+<!-- tablas medicos -->
+<div class="col-sm-9 text-center">
+  <div class="row">
+      <a class="btn btn-outline-primary btn-lg btn-block" href="#"> MEDICOS </a>
+  </div>
+  <div class="table-responsive">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>NOMBRE</th>
+          <th>APELLIDO</th>
+          <th>ESPECIALIDAD</th>
+          
+        </tr>
+      </thead>
+      <tbody>
+        {% for m in medico %}
+        <tr>
+          <td>{{m.med_nombre}}</td>
+          <td>{{m.med_apellido}}</td>
+          <td>{{m.esp_id}}</td>
+          
+          <td> <a href="" class="btn btn-info">editar</a></td>
+          <td> <a href="" class="btn btn-danger">eliminar</a></td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+<!-- fin tablas  medicos -->
+
+<!-- tabla de especialidades-->
+<div class="col-sm-9 text-center">
+  <div class="row">
+      <a class="btn btn-outline-primary btn-lg btn-block" href="#"> ESPECIALIDADES </a>
+  </div>
+  <div class="table-responsive">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Id</th>
+          <th>ESPECIALIDAD</th>
+          
+        </tr>
+      </thead>
+      <tbody>
+        {% for e in especialidades %}
+        <tr>
+          <td>{{e.esp_id}}</td>
+          <td>{{e.esp_nombre}}</td>
+          
+          <td> <a href="" class="btn btn-info">editar</a></td>
+          <td> <a href="" class="btn btn-danger">eliminar</a></td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+<!-- fin tablas  especialidades -->
+
     </div>
 
     
@@ -123,4 +240,7 @@
     </div>
   </footer>
 </div>
+
+</div>
+
 {% endblock %}
