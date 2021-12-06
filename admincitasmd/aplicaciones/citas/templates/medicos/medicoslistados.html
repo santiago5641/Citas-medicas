@@ -1,0 +1,39 @@
+{% extends "../base.html" %} 
+{% block title %} 100 llamadas emergencias {% endblock %} {% block body %}
+
+<div class="col-sm-9 text-center">
+    <h1> LISTA DE MEDICOS</h1>
+    <!-- tablas medicos -->
+<div class="text-center">
+    <div class="row">
+        
+        <a class="btn btn-outline-primary btn-lg btn-block" href="../medicos_crear"> Crear Medico </a>
+    </div>
+    <div class="table-responsive">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>NOMBRE</th>
+            <th>APELLIDO</th>
+            <th>ESPECIALIDAD</th>
+            
+          </tr>
+        </thead>
+        <tbody>
+          {% for m in medicos %}
+          <tr>
+            <td>{{m.med_nombre}}</td>
+            <td>{{m.med_apellido}}</td>
+            <td>{{m.esp_id}}</td>
+            
+            <td> <a href="" class="btn btn-info">editar</a></td>
+            <td> <a href="" class="btn btn-danger">eliminar</a></td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <!-- fin tablas  medicos -->
+    </div>
+{% endblock %}

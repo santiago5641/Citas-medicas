@@ -1,0 +1,40 @@
+{% extends "../base.html" %} 
+{% block title %} 100 llamadas emergencias {% endblock %} {% block body %}
+
+<div class="col-sm-9 text-center">
+    <h1> LISTA DE CITAS </h1>
+    <!-- tabla de citas -->
+    <div>
+        <div class="row">
+            <a class="btn btn-outline-primary btn-lg btn-block active" href="../citas_crear"  data-toggle="modal" data-target="#modalnuevacitas"> Nuevas Citas 2 </a>
+            
+        </div>
+        <div class="table-responsive">
+          <table class="table" >
+            <thead>
+              <tr>
+                <th>FECHA</th>
+                <th>HORA</th>
+                <th>MEDICO</th>
+                <th>PACIENTE</th>
+                <th>ACCIONES</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for c in citas %}
+              <tr>
+                <td>{{c.cit_fecha}}</td>
+                <td>{{c.cit_hora}}</td>
+                <td>{{c.med_id}}</td>
+                <td>{{c.pac_id}}</td>
+                <td> <a href="" class="btn btn-info">editar</a></td>
+                <td> <a href="" class="btn btn-danger">eliminar</a></td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <!-- fin tablas  citas -->
+    </div>
+{% endblock %}
