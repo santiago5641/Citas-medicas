@@ -24,9 +24,9 @@
             <td>{{p.pac_nombre}}</td>
             <td>{{p.pac_apellido}}</td>
             <td>{{p.pac_ced_ruc}}</td>
-            <td>{{p.pac_cell_telf.celular}}</td>
-            <td> <a href="" class="btn btn-info">editar</a></td>
-            <td> <a href="" class="btn btn-danger">eliminar</a></td>
+            <td>{{p.pac_cell_telf}}</td>
+            <td> <a href="../pacientes_editar/{{p.pac_id}}" class="btn btn-info">editar</a></td>
+            <td> <a href="../pacientes_eliminar/{{p.pac_id}}" class="btn btn-danger">eliminar</a></td>
           </tr>
           {% endfor %}
         </tbody>

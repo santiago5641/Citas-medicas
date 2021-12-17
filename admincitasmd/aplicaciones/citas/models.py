@@ -19,7 +19,7 @@ class Paciente(models.Model):
     pac_nombre=models.CharField(max_length=50)
     pac_apellido=models.CharField(max_length=50)
     pac_ced_ruc=models.CharField(max_length=13)
-    pac_cell_telf=models.JSONField()
+    pac_cell_telf=models.CharField(max_length=13)
 
     def  __str__(self):
         texto="{0} {1} "

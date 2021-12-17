@@ -19,7 +19,7 @@ class formcitas(forms.Form):
 class formmedicos(forms.Form):
     
     med_nombre=forms.CharField(required=True, widget=forms.DateInput)
-    ned_apellido=forms.CharField(required=True, widget=forms.DateInput)
+    med_apellido=forms.CharField(required=True, widget=forms.DateInput)
     esp_id=forms.ModelChoiceField(queryset=Especialidades.objects.all())
 
 class formpacientes(forms.Form):
@@ -27,5 +27,5 @@ class formpacientes(forms.Form):
     pac_nombre=forms.CharField(required=True, widget=forms.DateInput)
     pac_apellido=forms.CharField(required=True, widget=forms.DateInput)
     pac_ced_ruc=forms.CharField(required=True, widget=forms.DateInput)
-    pac_cell_telf=forms.JSONField(required=True, widget=forms.DateInput)
-    med_id=forms.ModelChoiceField(queryset=Especialidades.objects.all())
+    pac_cell_telf=forms.CharField(required=True, widget=forms.DateInput)
+    

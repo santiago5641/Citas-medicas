@@ -27,8 +27,8 @@
                 <td>{{c.cit_hora}}</td>
                 <td>{{c.med_id}}</td>
                 <td>{{c.pac_id}}</td>
-                <td> <a href="" class="btn btn-info">editar</a></td>
-                <td> <a href="" class="btn btn-danger">eliminar</a></td>
+                <td> <a href="../citas_editar/{{c.cit_id}}" class="btn btn-info">editar</a></td>
+                <td> <a href="../citas_eliminar/{{c.cit_id}}" class="btn btn-danger">eliminar</a></td>
               </tr>
               {% endfor %}
             </tbody>

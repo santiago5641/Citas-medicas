@@ -1,0 +1,31 @@
+{% extends "../base.html" %} 
+{% block title %} 100 llamadas emergencias {% endblock %} {% block body %}
+
+    
+    
+    <!-- <form method="post">
+
+        {{ formcitas.as_p }}
+        <button type="submit">Crear</button>   
+
+
+    </form> -->
+    <div class="col-sm-9 text-center">
+        <h2>Editar Medico</h2>
+        <div class="card">
+            <div class="card-body">
+                <form method="POST"> {% csrf_token %}
+                    {{ form.as_p }}
+
+                    <div class="form-group">
+
+                        <button type="submit" class="btn btn-success btn-block">EDITAR</button>
+
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+    
+{% endblock %}

@@ -26,8 +26,8 @@
             <td>{{m.med_apellido}}</td>
             <td>{{m.esp_id}}</td>
             
-            <td> <a href="" class="btn btn-info">editar</a></td>
-            <td> <a href="" class="btn btn-danger">eliminar</a></td>
+            <td> <a href="../medicos_editar/{{m.med_id}}" class="btn btn-info">editar</a></td>
+            <td> <a href="../medicos_eliminar/{{m.med_id}}" class="btn btn-danger">eliminar</a></td>
           </tr>
           {% endfor %}
         </tbody>

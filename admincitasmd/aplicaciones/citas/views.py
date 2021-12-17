@@ -22,16 +22,6 @@ def citas(request):
     citas = Citas.objects.all()
     return render(request, "citas/citaslistado.html", {"citas": citas})
 
-# def registrarcitas(request):
-#     cit_fecha= request.POST['cit_fecha']
-#     cit_hora= request.POST['cit_hora']
-#     med_id= request.POST['id_med_id']
-#     pac_id= request.POST['id_pac_id']
-#     log.info(cit_hora)
-
-#     cita = Citas.objects.create(cit_fecha=cit_fecha, cit_hora=cit_hora, med_id=med_id, pac_id=pac_id)
-#     return redirect('../citas')
-
 # crear citas 
 def crearCitas(request):
     form= formcitas()
@@ -55,6 +45,44 @@ def crearCitas(request):
         
     return render (request, 'citas/citas_crear.html', {'form': form})
 
+    # eliminar citas
+def eliminarCitas(request, cit_id):    
+    citas= Citas.objects.get(cit_id=cit_id)
+    citas.delete()
+
+    return redirect('/citas')
+
+def editarCitas(request,cit_id):
+    citas= Citas.objects.get(cit_id=cit_id)
+    cit_fecha= citas.cit_fecha
+    cit_hora= citas.cit_hora
+    med_id= citas.med_id
+    pac_id=citas.pac_id
+  
+    form= formcitas(initial={'cit_fecha':cit_fecha,'cit_hora':cit_hora,'med_id':med_id, 'pac_id':pac_id})
+    if request.method == "POST":
+        print(request.POST)
+        form= formcitas(request.POST)
+
+        if form.is_valid():
+            print("valido")
+            citas = Citas()
+            citas.cit_fecha= form.cleaned_data['cit_fecha']
+            citas.cit_hora= form.cleaned_data['cit_hora']
+            citas.med_id= form.cleaned_data['med_id']
+            citas.pac_id= form.cleaned_data['pac_id']
+
+            citas.save()
+
+        else:
+            print("no valido")
+
+        
+    return render (request, 'citas/citas_editar.html', {'form': form})
+
+
+
+
    #creacion de medicos  
 def medicos(request):
     medicos = Medico.objects.all()
@@ -72,7 +100,7 @@ def crearMedicos(request):
             medicos = Medico()
             medicos.med_nombre= form.cleaned_data['med_nombre']
             medicos.med_apellido= form.cleaned_data['med_apellido']
-            medicos.pac_id= form.cleaned_data['pac_id']
+            medicos.esp_id= form.cleaned_data['esp_id']
 
             medicos.save()
 
@@ -82,6 +110,40 @@ def crearMedicos(request):
         
     return render (request, 'medicos/medicos_crear.html', {'form': form})
 
+def eliminarMedicos(request, med_id):    
+        medicos= Medico.objects.get(med_id=med_id)
+        medicos.delete()
+
+        return redirect('/medicos')
+
+
+def editarMedicos(request,med_id):
+    medicos= Medico.objects.get(med_id=med_id)
+    med_nombre=medicos.med_nombre
+    med_apellido= medicos.med_apellido
+    esp_id=medicos.esp_id
+    form= formmedicos(initial={'med_nombre':med_nombre,'med_apellido':med_apellido,'esp_id':esp_id})
+    if request.method == "POST":
+        print(request.POST)
+        form= formmedicos(request.POST)
+
+        if form.is_valid():
+            print("valido")
+            medicos = Medico()
+            medicos.med_nombre= form.cleaned_data['med_nombre']
+            medicos.med_apellido= form.cleaned_data['med_apellido']
+            medicos.esp_id= form.cleaned_data['esp_id']
+
+            medicos.save()
+
+        else:
+            print("no valido")
+
+        
+    return render (request, 'medicos/medicos_crear.html', {'form': form})
+
+
+# listado y crear paciente
 def pacientes(request):
     pacientes = Paciente.objects.all()
     
@@ -101,10 +163,44 @@ def crearPacientes(request):
             pacientes.pac_ced_ruc=form.cleaned_data['pac_ced_ruc']
             pacientes.pac_cell_telf=form.cleaned_data['pac_cell_telf']
 
-            medicos.save()
+            pacientes.save()
 
         else:
             print("no valido")
 
         
     return render (request, 'pacientes/pacientes_crear.html', {'form': form})
+
+def eliminarPacientes(request, pac_id):    
+        pacientes= Paciente.objects.get(pac_id=pac_id)
+        pacientes.delete()
+
+        return redirect('/pacientes')
+
+def editarPacientes(request,pac_id):
+    pacientes= Paciente.objects.get(pac_id=pac_id)
+    pac_nombre=pacientes.pac_nombre
+    pac_apellido= pacientes.pac_apellido
+    pac_ced_ruc= pacientes.pac_ced_ruc
+    pac_cell_telf= pacientes.pac_cell_telf
+    form= formpacientes(initial={'pac_nombre':pac_nombre,'pac_apellido':pac_apellido,'pac_ced_ruc':pac_ced_ruc,'pac_cell_telf':pac_cell_telf})
+    if request.method == "POST":
+        print(request.POST)
+        form= formpacientes(request.POST)
+
+        if form.is_valid():
+            print("valido")
+            pacientes = Paciente()
+            pacientes.pac_nombre= form.cleaned_data['pac_nombre']
+            pacientes.pac_apellido= form.cleaned_data['pac_apellido']
+            pacientes.pac_ced_ruc=form.cleaned_data['pac_ced_ruc']
+            pacientes.pac_cell_telf=form.cleaned_data['pac_cell_telf']
+
+            pacientes.save()
+
+        else:
+            print("no valido")
+
+        
+    return render (request, 'pacientes/pacientes_crear.html', {'form': form})
+
