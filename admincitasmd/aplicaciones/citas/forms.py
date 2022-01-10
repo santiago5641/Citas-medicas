@@ -1,17 +1,14 @@
-
+from django.contrib.admin import widgets
 from django import forms
 
 from .models  import Citas, Especialidades, Medico, Paciente
 
-class Citasform(forms.ModelForm):
-    class Meta:
-        model = Citas
-        fields= '__all__'
+
 
 class formcitas(forms.Form):
     
     cit_fecha=forms.DateField(required=True, widget=forms.DateInput)
-    cit_hora=forms.TimeField(required=True, widget=forms.DateInput)
+    cit_hora=forms.TimeField(required=True, widget=forms.TimeInput)
     med_id=forms.ModelChoiceField(queryset=Medico.objects.all())
     pac_id=forms.ModelChoiceField(queryset=Paciente.objects.all())
 

@@ -1,7 +1,7 @@
 from django import forms
 from django.shortcuts import redirect, render
 
-from .forms import formcitas, Citasform, formmedicos, formpacientes
+from .forms import formcitas, formmedicos, formpacientes
 #from django.contrib.auth.forms import UserCreationForm
 from .models import Citas,Paciente,Especialidades,Medico
 
@@ -13,9 +13,16 @@ def home(request):
     pacientes = Paciente.objects.all()
     especialidades = Especialidades.objects.all()
     medico = Medico.objects.all()
+    # return render(request,"gestioncitas.html", {"citas": citas, "pacientes": pacientes, "especialidades": especialidades, "medico": medico})
+    return render(request,"index.html", {"citas": citas, "pacientes": pacientes, "especialidades": especialidades, "medico": medico})
+
+def gestion(request):
+    citas = Citas.objects.all()
+    pacientes = Paciente.objects.all()
+    especialidades = Especialidades.objects.all()
+    medico = Medico.objects.all()
     return render(request,"gestioncitas.html", {"citas": citas, "pacientes": pacientes, "especialidades": especialidades, "medico": medico})
-
-
+    
 # GESTION CITAS 
 #citas es lita de citas
 def citas(request):
@@ -53,7 +60,9 @@ def eliminarCitas(request, cit_id):
     return redirect('/citas')
 
 def editarCitas(request,cit_id):
+
     citas= Citas.objects.get(cit_id=cit_id)
+    print(citas.cit_hora)
     cit_fecha= citas.cit_fecha
     cit_hora= citas.cit_hora
     med_id= citas.med_id

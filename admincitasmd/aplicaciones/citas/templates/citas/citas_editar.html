@@ -7,7 +7,7 @@
         <h2>Editar Cita</h2>
         <div class="card">
             <div class="card-body">
-                <form action="/edicionCitas/" method="POST"> {% csrf_token %}
+                <form method="POST"> {% csrf_token %}
                     {{ form.as_p }} 
                     <div class="form-group">
 
