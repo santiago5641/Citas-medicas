@@ -4,7 +4,7 @@
       <meta charset="utf-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
       <meta http-equiv="X-UA-compatible" content="ie=edge">
-      <title>Ingreso al sistema</title>
+      {% block title %} 100 llamadas emergencias {% endblock %}
     <meta charset="”utf-8”" />
   </head>
   <body>
@@ -13,7 +13,7 @@
              <div class="col-12 col-md-6 offset-md-3">
                 <div class="card">
                     <div class="card-body">
-                        <h2>ingresa tus Credenciales</h2>
+                        <h2>Credenciales</h2>
                         <hr>
                         <form action="" method="post">
                             {% csrf_token %}
