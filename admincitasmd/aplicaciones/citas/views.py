@@ -4,6 +4,7 @@ from django.shortcuts import redirect, render
 from .forms import formcitas, formmedicos, formpacientes
 #from django.contrib.auth.forms import UserCreationForm
 from .models import Citas,Paciente,Especialidades,Medico
+from django.contrib import messages
 
 import logging as log
 # Create your views here.
@@ -45,6 +46,8 @@ def crearCitas(request):
             citas.pac_id= form.cleaned_data['pac_id']
 
             citas.save()
+            
+            messages.success(request,"creado correctamente")
 
         else:
             print("no valido")
@@ -56,7 +59,7 @@ def crearCitas(request):
 def eliminarCitas(request, cit_id):    
     citas= Citas.objects.get(cit_id=cit_id)
     citas.delete()
-
+    messages.success(request,"eliminado correctamente")
     return redirect('/citas')
 
 def editarCitas(request,cit_id):
@@ -82,7 +85,7 @@ def editarCitas(request,cit_id):
             citas.pac_id= form.cleaned_data['pac_id']
 
             citas.save()
-
+            messages.success(request,"editado correctamente")
         else:
             print("no valido")
 
@@ -112,7 +115,7 @@ def crearMedicos(request):
             medicos.esp_id= form.cleaned_data['esp_id']
 
             medicos.save()
-
+            messages.success(request,"creado correctamente")
         else:
             print("no valido")
 
@@ -122,7 +125,7 @@ def crearMedicos(request):
 def eliminarMedicos(request, med_id):    
         medicos= Medico.objects.get(med_id=med_id)
         medicos.delete()
-
+        messages.success(request,"creado correctamente")
         return redirect('/medicos')
 
 
@@ -144,7 +147,7 @@ def editarMedicos(request,med_id):
             medicos.esp_id= form.cleaned_data['esp_id']
 
             medicos.save()
-
+            messages.success(request,"creado correctamente")
         else:
             print("no valido")
 
@@ -174,6 +177,8 @@ def crearPacientes(request):
 
             pacientes.save()
 
+            messages.success(request,"creado correctamente")
+
         else:
             print("no valido")
 
@@ -183,7 +188,7 @@ def crearPacientes(request):
 def eliminarPacientes(request, pac_id):    
         pacientes= Paciente.objects.get(pac_id=pac_id)
         pacientes.delete()
-
+        messages.success(request,"creado correctamente")
         return redirect('/pacientes')
 
 def editarPacientes(request,pac_id):
@@ -204,9 +209,10 @@ def editarPacientes(request,pac_id):
             pacientes.pac_apellido= form.cleaned_data['pac_apellido']
             pacientes.pac_ced_ruc=form.cleaned_data['pac_ced_ruc']
             pacientes.pac_cell_telf=form.cleaned_data['pac_cell_telf']
-
-            pacientes.save()
-
+            
+            
+            pacientes.save()    
+            messages.success(request,"creado correctamente")
         else:
             print("no valido")
 

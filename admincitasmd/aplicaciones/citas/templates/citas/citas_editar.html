@@ -18,5 +18,16 @@
             </div>
         </div>
     </div>
-    
+    {% if messages %}
+        {% for m in messages %}
+            <script>
+                swal.fire({
+                    "title" : "Felicitaciones",
+                    "text" : "{{m}}",
+                    "icon" : "success"
+
+                })
+            </script>
+        {% endfor %}
+    {% endif %}
 {% endblock %}

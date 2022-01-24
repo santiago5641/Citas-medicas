@@ -23,7 +23,8 @@ urlpatterns = [
     path ('pacientes/', pacientes,name = 'pacientes'),
     path ('pacientes_crear/', crearPacientes,name = 'pacientes_crear'),
     path ('pacientes_eliminar/<int:pac_id>', eliminarPacientes,name = 'pacientes_eliminar'),
-    path ('pacientes_editar/<int:pac_id>', editarPacientes,name ='pacientes_editar'),
+    path ('pacientes_editar/<int:med_id>', editarPacientes,name ='pacientes_editar'),
+    
 
     
 ]

@@ -5,7 +5,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title> Cardio Care Medical Hospital Website Template | Smarteyeapps.com</title>
+    <title> 100 lamadas de emegencia Medical Hospital </title>
 
     <link rel="icon" type="image/x-icon" href="{% static 'assets/images/favicon.ico' %}">
     <link rel="shortcut icon" href="{% static 'assets/images/fav.jpg' %}">
@@ -20,13 +20,13 @@
     
     
     <div class="container body-container">
-        <!-- ################# Header Starts Here#######################--->
+        <!-- ################# Cabecera empeiza aca #######################--->
         <header>
             <div class="row header-top">
                 <div class="col-lg-7 col-md-12 left-item">
                     <ul>
-                        <li><i class="fas fa-envelope-square"></i> sales@smarteyeapps.com</li>
-                        <li><i class="fas fa-phone-square"></i> +123 987 887 765</li>
+                        <li><i class="fas fa-envelope-square"></i> 100llamdasmergencias@gmail.com</li>
+                        <li><i class="fas fa-phone-square"></i> +531 9159669599</li>
                     </ul>
                 </div>
                 <div class="col-lg-5 d-none d-lg-block right-item">
@@ -42,15 +42,25 @@
             <div  class=" ">
            
                 <div class="row header-nav">
-                    <div class="col-md-3 no-padding col-sm-12 nav-img">
-                        <img src="{% static 'assets/images/logo.jpg' %}" alt="">
+                    <div class="col-md-3 no-padding col-sm-12 nav-img ">
+                        <h1 > 100 Llamadas de Emergencias </h1>
                        <a data-toggle="collapse" data-target="#menu" href="#menu" ><i class="fas d-block d-md-none small-menu fa-bars"></i></a>
                     </div>
                     <div id="menu" class="col-md-9 d-none d-md-block nav-item">
                         <ul>
-                            <li><a href="../citas" >INGRESO</a></li>
                             
+                            {% if user.is_authenticated %}
+                            <li>
+                                <a href="{% url 'logout' %}">Cerrar_Sesion</a>
+                                <li><a href="../citas" >Agendar cita</a></li>
+                            </li>
+                            {% else %}
+                            <li>
+                                <a href="{% url 'login' %}">Ingresar</a>
+                            </li>
+                            {% endif %}
                         </ul>
+                        
                     </div>
                 </div>
 
@@ -58,7 +68,7 @@
         </div>
         </header>
         
-        <!-- ################# Slider Starts Here#######################--->
+        <!-- ################# Slider Empeizana aca #######################--->
      <!--  -->
     <!-- asaa -->
     <!-- p[ruebas ] -->
@@ -89,7 +99,7 @@
         </a>
       </div>
     <!-- fin [pruebas] -->
-    <!-- ################# Vision Mission Starts Here#######################--->
+    <!-- ################# Vision Mission empieza aca #######################--->
 
     <div class="key-sec row">
         <div class="col-sm-4 no-padding">
@@ -98,8 +108,8 @@
                     <i class="far fa-paper-plane"></i>
                </div>
                <div class="detail">
-                  <b>Our Mission</b>
-                   <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form </p>
+                  <b>MISION</b>
+                   <p>Satisfacer de manera eficaz y eficiente las necesidades de cuidado de salud de la comunidad. Brindar a toda la comunidad la mejor atención medica basada en la evidencia científica y contenido ético, acompañando al paciente y su familia. </p>
                </div>
                 
             </div>
@@ -110,8 +120,8 @@
                    <i class="far fa-eye"></i>
                </div>
                <div class="detail">
-                  <b>Our Mission</b>
-                   <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form </p>
+                  <b>VISION</b>
+                   <p>Crear y sostener un sistema integral de salud, que ofrezca un espacio de crecimiento y desarrollo profesional enfocado en la excelencia y calidez en la asistencia al paciente y su familia. </p>
                </div>
                 
             </div>
@@ -122,70 +132,72 @@
                    <i class="fas fa-headset"></i>
                </div>
                <div class="detail">
-                  <b>Our Mission</b>
-                   <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form </p>
+                  <b>CONTACTOS</b>
+                   <p>GMAIL </p>
+                   <hr>
+                   <p>100llamdasmergencias@gmail.com</p>
                </div>
                 
             </div>
         </div>
     </div>
-     	<!-- ################# Our Session Starts Here#######################--->  	
+     	<!-- ################# otros servicios #######################--->  	
   	
   	<section class="sesion-type">
   	 
              <div class="session-title row">
-  		    <h2>Our Services</h2>
-  		    <p>Not the answer you're looking for? Printing and typesetting inLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry’s Lorem</p>
+  		    <h2>TIPO DE SERVICIOS</h2>
+  		    <p> LOS SERVICIOS SON LOS SIGUIENTES </p>
   		</div>
   	        <div class="row">
   	            <div class="col-md-4 col-sm-6">
   	                <div class="single-sess">
   	                    <img src="{% static 'assets/images/services/service-1.jpg' %}" alt="">
-  	                    <p>Individual Therapy</p>
+  	                    <p>CARDIOLOGIA</p>
   	                </div>
   	            </div>
   	            <div class="col-md-4 col-sm-6">
   	                <div class="single-sess">
   	                    <img src="{% static 'assets/images/services/service-2.jpg' %}" alt="">
-  	                    <p>Cuple Therapy</p>
+  	                    <p>NUTRICION</p>
   	                </div>
   	            </div>
   	            <div class="col-md-4 col-sm-6">
   	                <div class="single-sess">
   	                    <img src="{% static 'assets/images/services/service-3.jpg' %}" alt="">
-  	                    <p>online Session</p>
+  	                    <p>MEDICINA GENERAL</p>
   	                </div>
   	            </div>
   	            <div class="col-md-4 col-sm-6">
   	                <div class="single-sess">
   	                    <img src="{% static 'assets/images/services/service-4.jpg' %}" alt="">
-  	                    <p>Group Therapy</p>
+  	                    <p>TRAUMATOLOGIA</p>
   	                </div>
   	            </div>
   	            <div class="col-md-4 col-sm-6">
   	                <div class="single-sess">
   	                    <img src="{% static 'assets/images/services/service-5.jpg' %}" alt="">
-  	                    <p>All Age Group</p>
+  	                    <p>PEDIATRIA</p>
   	                </div>
   	            </div>
   	           <div class="col-md-4 col-sm-6">
   	                <div class="single-sess">
   	                    <img src="{% static 'assets/images/services/service-6.jpg' %}" alt="">
-  	                    <p>All Age Group</p>
+  	                    <p>LABORATORIO</p>
   	                </div>
   	            </div>
   	       
   	    </div>
   	</section>
     
-    <!-- ################# Our Team Starts Here#######################--->
+    <!-- ################# eeqipo de trabajo #######################--->
 
 
     <section class="our-team row">
         
             <div class="inner-title w-100 row">
-                <h2>Meet our Team</h2>
-                <p>Take a look at our innovative and experiance team</p>
+                <h2>Conozca nuestro equipo de trabajo </h2>
+                <p>Echa un vistazo a nuestro equipo innovador y experimentado.</p>
             </div>
             <div class="row team-member">
                 <div class="col-md-3 col-sm-6">
@@ -194,7 +206,7 @@
                             <img class="teammempic" alt="" src="{% static 'assets/images/team/team-memb1.jpg' %}">
                         </div>
                         <div class="detfs">
-                            <p>Mark Frances<i> - MD</i></p>
+                            <p>Bliss Stand<i> - MD</i></p>
                             <ul>
                                 <li><a href="#"><i class="fab fa-facebook-f fa-lg"></i></a></li>
                                 <li><a href="#"><i class="fab fa-twitter fa-lg"></i></a></li>
@@ -214,7 +226,7 @@
                             <img class="teammempic" alt="" src="{% static 'assets/images/team/team-memb2.jpg' %}">
                         </div>
                         <div class="detfs">
-                            <p>Mark Frances<i> - MD</i></p>
+                            <p>Catheryn Larson <i> - MD</i></p>
                             <ul>
                                 <li><a href="#"><i class="fab fa-facebook-f fa-lg"></i></a></li>
                                 <li><a href="#"><i class="fab fa-twitter fa-lg"></i></a></li>
@@ -234,7 +246,7 @@
                             <img class="teammempic" alt="" src="{% static 'assets/images/team/team-memb3.jpg' %}">
                         </div>
                         <div class="detfs">
-                            <p>Mark Frances<i> - MD</i></p>
+                            <p>Adriana Espinoza<i> - MD</i></p>
                             <ul>
                                 <li><a href="#"><i class="fab fa-facebook-f fa-lg"></i></a></li>
                                 <li><a href="#"><i class="fab fa-twitter fa-lg"></i></a></li>
@@ -255,7 +267,7 @@
                             <img class="teammempic" alt="" src="{% static 'assets/images/team/team-memb4.jpg' %}">
                         </div>
                         <div class="detfs">
-                            <p>Mark Frances<i> - MD</i></p>
+                            <p>Yolanda Torres<i> - MD</i></p>
                             <ul>
                                 <li><a href="#"><i class="fab fa-facebook-f fa-lg"></i></a></li>
                                 <li><a href="#"><i class="fab fa-twitter fa-lg"></i></a></li>
@@ -272,102 +284,35 @@
             </div>
         
     </section>
-    
-    <!-- ################# Our Blog Starts Here#######################--->
-
-    <section class="our-blog row">
-        
-         		<div class="row w-100 session-title">
-        			<h2> Our Blog </h2>
-        			<p>Take a look at what people say about US </p>
-        		</div>
-        		<div class="blog-row row">
-        			<div class="col-lg-4 col-md-6">
-        				<div class="single-blog">
-        					<figure>
-        						<img src="{% static 'assets/images/blog/blog_01.jpg' %}" alt="">
-        					</figure>
-        					<div class="blog-detail">
-        						<small>By Admin | August 10 2018</small>
-								<h4>Methods of Recuirtments</h4>
-								<p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam justo neque, aliquet sit amet elementum vel, vehicula eget eros. Vivamus arcu metus, mattis sed sagittis at, sagittis quis neque. Praesent.</p>
-								<div class="link">
-									<a href="">Read more </a><i class="fas fa-long-arrow-alt-right"></i>
-								</div>
-        					</div>
-        					
-        					
-        				</div>
-        			</div>
-        			<div class="col-lg-4 col-md-6">
-        				<div class="single-blog">
-        					<figure>
-        						<img src="{% static 'assets/images/blog/blog_02.jpg' %}" alt="">
-        					</figure>
-        					<div class="blog-detail">
-        						<small>By Admin | August 10 2018</small>
-								<h4>Methods of Recuirtments</h4>
-								<p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam justo neque, aliquet sit amet elementum vel, vehicula eget eros. Vivamus arcu metus, mattis sed sagittis at, sagittis quis neque. Praesent.</p>
-								<div class="link">
-									<a href="">Read more </a><i class="fas fa-long-arrow-alt-right"></i>
-								</div>
-        					</div>
-        					
-        					
-        				</div>
-        			</div>
-        			<div class="col-lg-4 col-md-6">
-        				<div class="single-blog">
-        					<figure>
-        						<img src="{% static 'assets/images/blog/blog_03.jpg' %}" alt="">
-        					</figure>
-        					<div class="blog-detail">
-        						<small>By Admin | August 10 2018</small>
-								<h4>Methods of Recuirtments</h4>
-								<p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam justo neque, aliquet sit amet elementum vel, vehicula eget eros. Vivamus arcu metus, mattis sed sagittis at, sagittis quis neque. Praesent.</p>
-								<div class="link">
-									<a href="">Read more </a><i class="fas fa-long-arrow-alt-right"></i>
-								</div>
-        					</div>
-        					
-        					
-        				</div>
-        			</div>
-        		</div>
-         	
-         </section>
-    <!-- ################# Footer Starts Here#######################--->
-
 
     <footer class="footer row">
        
             <div class="row">
                 <div class="col-md-4 col-sm-12">
-                    <h2>About Us</h2>
+                    <h2>Sobre nosotros</h2>
                     <p>
-                        Smart Eye is a leading provider of information technology, consulting, and business process services. Our dedicated employees offer strategic insights, technological expertise and industry experience.
+                      100 llamadas de emergencia lleva con mas de 20 año experiencia o trayectoria brindadno un servicio de alta calidad medica y tecnologica.
                     </p>
-                    <p>We focus on technologies that promise to reduce costs, streamline processes and speed time-to-market, Backed by our strong quality processes and rich experience managing global... </p>
+                    
                 </div>
                 <div class="col-md-4 col-sm-12">
-                    <h2>Useful Links</h2>
+                    <!-- <h2>Useful Links</h2>
                     <ul class="list-unstyled link-list">
                         <li><a ui-sref="about" href="#/about">About us</a><i class="fa fa-angle-right"></i></li>
                         <li><a ui-sref="portfolio" href="#/portfolio">Portfolio</a><i class="fa fa-angle-right"></i></li>
                         <li><a ui-sref="products" href="#/products">Latest jobs</a><i class="fa fa-angle-right"></i></li>
                         <li><a ui-sref="gallery" href="#/gallery">Gallery</a><i class="fa fa-angle-right"></i></li>
                         <li><a ui-sref="contact" href="#/contact">Contact us</a><i class="fa fa-angle-right"></i></li>
-                    </ul>
+                    </ul> -->
                 </div>
                 <div class="col-md-4 col-sm-12 map-img">
-                    <h2>Contact Us</h2>
+                    <h2>Contactanos </h2>
                     <address class="md-margin-bottom-40">
                         BlueDart <br>
-                        Marthandam (K.K District) <br>
-                        Tamil Nadu, IND <br>
-                        Phone: +91 9159669599 <br>
-                        Email: <a href="mailto:info@anybiz.com" class="">info@bluedart.in</a><br>
-                        Web: <a href="smart-eye.html" class="">www.bluedart.in</a>
+                        Loja <br>
+                        Telefono: +531 9159669599 <br>
+                        Email: <a  class="">100llamdasmergencias@gmail.com</a><br>
+                        Web: <a  class="">www.100llamdasdemergancia.in</a>
                     </address>
 
                 </div>

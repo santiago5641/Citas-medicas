@@ -6,7 +6,7 @@
     <!-- tabla de citas -->
     <div>
         <div class="row">
-            <a class="btn btn-outline-primary btn-lg btn-block active" href="../citas_crear"  data-toggle="modal" data-target="#modalnuevacitas"> Nuevas Citas 2 </a>
+            <a class="btn btn-outline-primary btn-lg btn-block active" href="../citas_crear"  data-toggle="modal" data-target="#modalnuevacitas"> Nuevas Citas </a>
             
         </div>
         <div class="table-responsive">
@@ -37,4 +37,16 @@
       </div>
       <!-- fin tablas  citas -->
     </div>
+    {% if messages %}
+        {% for m in messages %}
+            <script>
+                swal.fire({
+                    "title" : "Felicitaciones",
+                    "text" : "{{m}}",
+                    "icon" : "success"
+
+                })
+            </script>
+        {% endfor %}
+    {% endif %}
 {% endblock %}
